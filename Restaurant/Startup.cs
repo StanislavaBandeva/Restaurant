@@ -4,6 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using Restaurant.BL.Interfaces;
+using Restaurant.BL.Services;
+using Restaurant.DL.Interfaces;
+using Restaurant.DL.Repositories;
 
 namespace Restaurant.Host
 {
@@ -19,6 +23,15 @@ namespace Restaurant.Host
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Repositories
+            services.AddSingleton<IOrderRepository, OrderRepository>();
+            services.AddSingleton<IProductRepository, ProductRepository>();
+            services.AddSingleton<ITableRepository, TableRepository>();
+
+            // Services
+            services.AddSingleton<IOrderService, OrderService>();
+            services.AddSingleton<IProductService, ProductService>();
+            services.AddSingleton<ITableService, TableService>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
