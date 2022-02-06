@@ -11,6 +11,10 @@ namespace Restaurant.Host.Extensions
         {
             CreateMap<Order, OrderResponse>();
             CreateMap<OrderRequest, Order>();
+            CreateMap<Product, ProductResponse>();
+            CreateMap<ProductRequest, Product>();
+            CreateMap<Table, TableResponse>();
+            CreateMap<TableRequest, Table>();
         }
     }
 }
