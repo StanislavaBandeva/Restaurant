@@ -65,9 +65,9 @@ namespace Restaurant.Host.Controllers
                 return BadRequest();
             }
 
-            var order = _mapper.Map<Product>(productRequest);
+            var product = _mapper.Map<Product>(productRequest);
 
-            var result = _productService.Create(order);
+            var result = _productService.Create(product);
 
             this._logger.LogInformation("Create returned OK");
 
